@@ -121,9 +121,9 @@ The DDO specification contains the following information:
             "Curve": "nistp256",
             "Value":"022f71daef10803ece19f96b2cdb348d22bf7871c178b41f35a4f3772a8359b7d2"
         }, {
-            "PublicKeyId": "did:ont:TVuF6FH1PskzWJAFhWAFg17NSitMDEBNoa#keys-2", 
+            "PublicKeyId": "did:ont:TVuF6FH1PskzWJAFhWAFg17NSitMDEBNoa#keys-2",
             "Type": "RSA",
-            "Length": 2048, 
+            "Length": 2048,
             "Value": "3082010a...."
         }
     ],
