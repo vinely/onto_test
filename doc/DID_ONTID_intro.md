@@ -1,16 +1,16 @@
 # 1. Decentralized Identifiers (DIDs)
 
-## 1.1 Overview 
+## 1.1 Overview
 
  Conventional **identity management** systems are based on centralized authorities such as corporate directory services, certificate authorities, or domain name registries. From the standpoint of cryptographic trust verification, each of these centralized authorities serves as its own root of trust. To make identity management work across these systems requires implementing federated identity management.
 
-The emergence of distributed ledger technology (DLT), sometimes referred to as blockchain technology, provides the opportunity for fully decentralized identity management. In a **decentralized identity system**, entities are free to use any shared root of trust. 
+The emergence of distributed ledger technology (DLT), sometimes referred to as blockchain technology, provides the opportunity for fully decentralized identity management. In a **decentralized identity system**, entities are free to use any shared root of trust.
 
 The entities are identified by **decentralized identifiers** (DIDs). They may authenticate via proofs (e.g., digital signatures, privacy-preserving biometric protocols, etc.). **DIDs** point to **DID Documents**. A DID Document contains a set of service endpoints for interacting with the entity.
 
-To use a DID with a `particular distributed ledger or network` requires defining a **DID method** in a separate DID method specification. A DID method specifies the set of rules for how a DID is registered, resolved, updated, and revoked on that specific ledger or network. 
+To use a DID with a `particular distributed ledger or network` requires defining a **DID method** in a separate DID method specification. A DID method specifies the set of rules for how a DID is registered, resolved, updated, and revoked on that specific ledger or network.
 
-Note that DID methods may also be developed for identifiers registered in federated or centralized identity management systems. For their part, all types of identifier systems may add support for DIDs. This creates an interoperability bridge between the worlds of centralized, federated, and decentralized identifiers. 
+Note that DID methods may also be developed for identifiers registered in federated or centralized identity management systems. For their part, all types of identifier systems may add support for DIDs. This creates an interoperability bridge between the worlds of centralized, federated, and decentralized identifiers.
 
 ## 1.2 The Generic DID
 
@@ -43,7 +43,7 @@ did-reference = did [ "/" did-path ][ "#" did-fragment ]
 1. DID method specifications MUST include their own Security Considerations sections.
 2. This section MUST consider all the requirements mentioned in section 5 of [[RFC3552](https://tools.ietf.org/html/rfc3552)] (page 27) for the DID operations defined in the specification.
 
-This table summarizes the DID method specifications currently in development. The links will be updated as subsequent Implementer’s Drafts are produced.
+This table summarizes the DID method specifications currently in development. The links will be updated as subsequent Implementerâ€™s Drafts are produced.
 
 | Method Name  | Status      | DLT or Network    | Authors                                              | Link                                                         |
 | ------------ | ----------- | ----------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
@@ -158,9 +158,9 @@ A DID that uses this method **MUST** begin with the following prefix: `did:ont`.
 The decentralized identifiers(DID) on Ontology blockchain is of the following format:
 
 ``` code
-ont-did   = "did:ont:" id-string 
+ont-did   = "did:ont:" id-string
 id-string = 1* idchar
-idchar    = 1-9 / A-H / J-N / P-Z / a-k / m-z 
+idchar    = 1-9 / A-H / J-N / P-Z / a-k / m-z
 ```
 
 `idchar` consists of all the characters in the base58 char set which is first defined by
