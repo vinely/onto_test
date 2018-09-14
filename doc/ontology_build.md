@@ -1,6 +1,8 @@
 # onotlogy build
 
-## latest version
+## ontology (ontology go sdk , ontology-eventbus, ontology-crypto)
+
+### latest version
 
 for version selection using glide
 
@@ -51,9 +53,10 @@ ignore:
 
 - set $GOPATH to workspace
 - glide up
-- go build main.go
+- go build main.go 
+  or using makefile like: make ontology-linux
 
-## version v0.75
+### version v0.75
 
 check out tag v0.75 ontology
 fix the glide.yml
@@ -113,3 +116,11 @@ ignore:
   - golang.org/x/sys/unix
 
 ```
+
+- set $GOPATH to workspace
+- glide up
+- go build main.go
+
+## ontology java sdk
+
+maven build
