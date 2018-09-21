@@ -1,0 +1,45 @@
+[Unit]
+Description=Ontology
+Documentation=https://https://ontio.github.io/documentation/
+Wants=network-online.target
+After=network-online.target
+AssertFileIsExecutable=/usr/local/bin/ontology
+
+[Service]
+WorkingDirectory=/var/lib/ontology
+
+User=root
+Group=root
+
+PermissionsStartOnly=true
+
+Environment="ConfigPath=/root/.ontology/"
+ExecStartPre=/bin/mkdir -p /var/lib/ontology
+
+ExecStart=/bin/bash -c "/bin/cat \"${ConfigPath}/ONTO_KEY\" | /usr/local/bin/ontology --enable-consensus --config=\"${ConfigPath}/config.json\" -w \"${ConfigPath}/wallet.dat\" --gasprice 0 --gaslimit 0 --nodeport 9080 --consensus-port 9081 --rpcport 9009 --rest --restport 9010 --ws  --wsport 9011"
+
+ExecReload=/bin/kill -HUP $MAINPID
+
+# Let systemd restart this service only if it has ended with the clean exit code or signal.
+Restart=on-success
+
+StandardOutput=journal
+StandardError=inherit
+
+# Specifies the maximum file descriptor number that can be opened by this process
+LimitNOFILE=65536
+
+# Disable timeout logic and wait until process is stopped
+TimeoutStopSec=0
+
+# SIGTERM signal is used to stop Ontology
+KillSignal=SIGTERM
+
+#SendSIGKILL=no
+
+SuccessExitStatus=0
+
+[Install]
+WantedBy=multi-user.target
+
+# Built for ${project.name}-${project.version} (${project.name})
