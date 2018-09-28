@@ -13,6 +13,7 @@ cd .ontology
 echo ${mypassword} > ONTO_KEY
 cp /path/to/config.json .
 cp /path/to/wallet.dat .
+cp /path/to/config.ini .
 cp /path/to/ontology.service /lib/systemd/system/
 mkdir -p /var/lib/ontology
 ```

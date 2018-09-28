@@ -32,7 +32,7 @@ acc2 = Account(private_key2, SignatureScheme.SHA256withECDSA)
 did = "did:ont:" + acc2.get_address_base58()
 
 def test_ontid():
-
+    print("ontid")
     tx = sdk.native_vm().ont_id().new_registry_ontid_transaction(did, acc2.get_public_key(),
                                                                     acc1.get_address_base58(), 200000, 0)
     tx = sdk.sign_transaction(tx, acc2)
@@ -49,6 +49,7 @@ def test_ontid():
         print(msg,"==", e.args[1])    
 
 def new_get_ddo_transaction():
+    print("get_ddo")
     tx = sdk.native_vm().ont_id().new_get_ddo_transaction(did)
     out_ddo = sdk.rpc.send_raw_transaction_pre_exec(tx)
 
@@ -59,9 +60,10 @@ def new_get_ddo_transaction():
     print(parsed_ddo['Owners'][0]['PubKeyId'][:len(did)] +" == "+ did)
 
 def test_new_add_attribute_transaction():
+    print("add attribute")
     attris = []
     attri = {}
-    attri["key"] = "key1"
+    attri["key"] = "keyeqw"
     attri["type"] = "string"
     attri["value"] = "value100"
     attris.append(attri)

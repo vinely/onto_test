@@ -6,17 +6,17 @@ After=network-online.target
 AssertFileIsExecutable=/usr/local/bin/ontology
 
 [Service]
-WorkingDirectory=/var/lib/ontology
+EnvironmentFile=/root/.ontology/config.ini
+
+#WorkingDirectory=/var/lib/ontology
 
 User=root
 Group=root
 
 PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p ${WorkPath}
 
-Environment="ConfigPath=/root/.ontology/"
-ExecStartPre=/bin/mkdir -p /var/lib/ontology
-
-ExecStart=/bin/bash -c "/bin/cat \"${ConfigPath}/ONTO_KEY\" | /usr/local/bin/ontology --enable-consensus --config=\"${ConfigPath}/config.json\" -w \"${ConfigPath}/wallet.dat\" --gasprice 0 --gaslimit 0 --nodeport 9080 --consensus-port 9081 --rpcport 9009 --rest --restport 9010 --ws  --wsport 9011"
+ExecStart=/bin/bash -c "cd \"${WorkPath}\"; /bin/cat \"${ConfigPath}/ONTO_KEY\" | /usr/local/bin/ontology --config=\"${ConfigPath}/config.json\" -w \"${ConfigPath}/wallet.dat\" --gasprice 0 --gaslimit 0 ${NodeArgs} ${ConsArgs} ${RpcArgs} ${RestArgs} ${WsockArgs}"
 
 ExecReload=/bin/kill -HUP $MAINPID
 
